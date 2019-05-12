@@ -1,8 +1,34 @@
 /**index.wxss**/
-.navigation {
+.navbar {
   display: flex;
+  z-index: 500rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;   
+  height: 50px;
+  flex-direction: row;
+  font-size: 35rpx;
+  line-height: 56rpx;
+  text-align: center;
+  color:white;
+  box-sizing: border-box;
+  background-color: rgb(204, 17, 17);
+  border-bottom: 1rpx solid rgb(204, 17, 17);
+
+}
+.navbar-item{
   flex-grow: 1;
-  font-size: 15rpx;
-  align-items: center;
+  padding: 18rpx 0px;
+}
+
+.navbar-item-active{
+  font-size: 35rpx;
+  line-height: 56rpx;
+  font-weight:bold;
+  text-align: center;
+  transition: all 0.3s;
+  border-bottom: 8rpx solid white;
+  color: whitesmoke;
 }
 

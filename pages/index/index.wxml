@@ -1,23 +1,16 @@
-<view class="navi">
-  <block wx:for="{{navbarTitle}}" wx:key="index">
-    <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
-      <text>{{item}}</text>
+<view class="movie-container">
+    <!-- 导航栏 -->
+    <view class="navbar">
+      <block wx:for="{{navbarTitle}}" wx:key="index">
+        <view class="navbar-item {{navbarActiveIndex === index ? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+          <text>{{item}}</text>
+        </view>
+      </block>
     </view>
-  </block>
-
-
-</view>
-
-
-
-<switch wx:for="{{objectArray}}" wx:key="unique" style="display: block;">
-  {{item.id}}
-</switch>
-<button bindtap="switch">Switch</button>
-<button bindtap="addToFront">Add to the front</button>
-
-<switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;">
-  {{item}}
-</switch>
-<button bindtap="addNumberToFront">Add to the front</button>
-
+   <!-- 内容栏 -->
+   <view class="content">
+    <image class="arrow-icon" src="/images/arrow.png"></image>
+    <view class="day-text">{{todayDate}}</view>
+    <view class="temp-text">{{todayTemp}}</view>
+  </view>
+ </view>
