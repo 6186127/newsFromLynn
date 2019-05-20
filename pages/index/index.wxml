@@ -8,9 +8,13 @@
       </block>
     </view>
    <!-- 内容栏 -->
-   <view class="content">
-    <image class="arrow-icon" src="/images/arrow.png"></image>
-    <view class="day-text">{{todayDate}}</view>
-    <view class="temp-text">{{todayTemp}}</view>
-  </view>
- </view>
+   <view class="bottom">
+    <view class="content" wx:for="{{newList}}" id="{{item.id}}">
+      <image class="conPic" src="{{item.pic}}"></image>
+      <view class="Context">
+        <view class="ConHead">{{item.title}}</view>
+        <view class="conFrom">{{item.source}}</view>
+      </view>
+    </view>  
+</view>
+</view>

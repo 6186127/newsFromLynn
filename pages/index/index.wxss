@@ -1,8 +1,8 @@
-/**index.wxss**/
+
 .navbar {
   display: flex;
-  z-index: 500rpx;
-  position: absolute;
+  position:fixed;
+  z-index: 500;
   left: 0;
   top: 0;
   width: 100%;   
@@ -15,8 +15,13 @@
   box-sizing: border-box;
   background-color: rgb(204, 17, 17);
   border-bottom: 1rpx solid rgb(204, 17, 17);
+}
+.bottom{
+  position: absolute;
+  margin-top: 90rpx;
 
 }
+
 .navbar-item{
   flex-grow: 1;
   padding: 18rpx 0px;
@@ -32,3 +37,38 @@
   color: whitesmoke;
 }
 
+.conPic{
+  width: 33%;
+  margin-top: 10rpx;
+  height: 180rpx;
+  object-fit: contain;
+  /*无法让图片适应居中显示
+display:flex; 
+justify-content:center;
+align-items:center;*/
+}
+.content{
+display: flex;
+height: 200rpx;
+}
+
+.Context{
+  display:inline-block;
+  align-content:space-between;
+  width: 66%;
+  font-size: 33rpx;
+  line-height: 56rpx;
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+
+}
+.ConHead{
+  height: 112rpx;
+  overflow: hidden;
+  font-display: gray
+}
+.conFrom{
+  margin-top: 10rpx;
+  font-size: 26rpx;
+
+}

@@ -1,3 +1,6 @@
+const NaviMap = ['gn', 'gj', 'cj', 'yl', 'js', 'ty', 'other']
+
+
 Page({
 
   /**
@@ -14,6 +17,11 @@ Page({
       "体育",
       "其他"
     ],
+    conPic: '',
+    conHead : '',
+    conFrom:'',
+    naviClass:'gn',
+    newList:[],
   },
 
   /**
@@ -25,7 +33,7 @@ Page({
       */
      onNavBarTap(event){
          // 获取点击的navbar的index
-       console.log(event)
+       //console.log(event)
          let navbarTapIndex = event.currentTarget.dataset.navbarIndex
        console.log(navbarTapIndex)
          // 设置data属性中的navbarActiveIndex为当前点击的navbar
@@ -33,8 +41,46 @@ Page({
              navbarActiveIndex: navbarTapIndex      
 
     })
+    //点击后刷新新闻内容
+       let ClassTitle = NaviMap[navbarTapIndex]
+       console.log(ClassTitle)
+       this.getList(ClassTitle)
   },
 
+  getList(ClassTitle) {
+    console.log(ClassTitle)
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/list',
+      data: {
+        type: ClassTitle
+      },
+      success: res => {
+        console.log(res)
+        let cs = res.data.result
+        console.log(cs)
+        this.showNewList(cs)
+      }
+    })
+  },
+    
+  showNewList(result){
+    let length = result.length
+    let news = result
+    let list = []
+    console.log(length)
+    for (let i = 0; i < length; i += 1) {
+      list.push({
+        id: news[i].id,
+        title: news[i].title,
+        source: news[i].source,
+        pic: 'http:' + news[i].firstImage,
+      })
+    }
+    //list[0].arrTime = 'Now'
+    console.log(list)
+    this.setData({ newList: list })
+
+  },
   onBindAnimationFinish: function ({ detail }) {
          // 设置data属性中的navbarActiveIndex为当前点击的navbar
          this.setData({
@@ -43,7 +89,8 @@ Page({
     
   },
 
-  onLoad: function (options) {
+  onLoad(){
+    this.getList(this.data.naviClass);
 
     
   },
